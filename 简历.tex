@@ -1,29 +1,47 @@
 \documentclass[11pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
-\usepackage{xeCJK}                  
-\usepackage{xcolor}                 
-\usepackage{fontawesome5}           
-\usepackage{enumitem}               
-\usepackage{titlesec}               
-\usepackage{array} 
+\usepackage{xeCJK}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{array}
 \usepackage{graphicx}
 \usepackage{hyperref}
 \hypersetup{hidelinks}
 
-\definecolor{iconPurple}{RGB}{107, 20, 89}
-\definecolor{themeBlue}{RGB}{36, 45, 74}
+\usepackage{tikz}
+
+\definecolor{iconGray}{RGB}{0, 0, 0}
+\definecolor{themeGray}{RGB}{0, 0, 0}
 \definecolor{textBlack}{RGB}{0, 0, 0}
 
-\setCJKmainfont{KaiTi}[AutoFakeBold=2.5] 
-\setCJKfamilyfont{zhbold}{SimHei} 
+\setCJKmainfont{SimSun}[AutoFakeBold=2.5]
+\setCJKfamilyfont{zhbold}{SimSun}
 \newcommand*{\boldtext}[1]{{\bfseries #1}}
 
+\definecolor{globalIconColor}{RGB}{0, 0, 0}
+\newcommand{\globalIconSize}{12pt}
+
+\newcommand{\secicon}[1]{{\color{globalIconColor}\fontsize{\globalIconSize}{\globalIconSize}\selectfont #1}}
+
+\newcommand{\drawsectiontitle}[1]{%
+  \noindent
+  \begin{tikzpicture}[baseline, trim left=0pt, trim right=\linewidth]
+    \node[anchor=base west, inner sep=0pt, outer sep=0pt] (title) at (0,0) {#1};
+    \draw[themeGray, line width=1.0pt]
+      (0, -0.16cm)
+      -- ([xshift=0.15cm, yshift=-0.16cm]title.base east)
+      -- ([xshift=0.35cm, yshift=0.17cm]title.base east)
+      -- (\linewidth, 0.17cm);
+  \end{tikzpicture}%
+}
+
 \titleformat{\section}
-  {\large\bfseries\color{themeBlue}} 
-  {}                                
-  {0em}                             
-  {}                                
-  [\vspace{2pt}{\color{themeBlue}\titlerule[1.5pt]}] 
+  {\large\bfseries\color{themeGray}}
+  {}
+  {0em}
+  {\drawsectiontitle}
 
 \usepackage[top=1.5cm, bottom=1cm, left=1.8cm, right=1.8cm]{geometry}
 
@@ -41,8 +59,8 @@
     \renewcommand{\arraystretch}{1.5}
     \begin{tabular}{@{}l l@{}}
         {\Huge \boldtext{芙莉莲}} \quad 女 & \small \boldtext{求职意向：老魔法使} \\
-        \small {\color{iconPurple}\faPhone*} 000-0000-0000 & \small {\color{iconPurple}\faEnvelope} frieren@magic.org \\
-        \small {\color{iconPurple}\faRss} \url{https://frieren.blog} & \small {\color{iconPurple}\faGithub} \url{https://github.com/Frieren} \\
+        \small {\color{iconGray}\faPhone*} 000-0000-0000 & \small {\color{iconGray}\faEnvelope} frieren@magic.org \\
+        \small {\color{iconGray}\faRss} \url{https://frieren.blog} & \small {\color{iconGray}\faGithub} \url{https://github.com/Frieren} \\
     \end{tabular}
 \end{minipage}
 \begin{minipage}[t]{0.22\textwidth}
@@ -52,17 +70,17 @@
 \end{minipage}
 
 \titlespacing*{\section}{0pt}{0pt}{8pt}
-\section{{\color{iconPurple}\fontsize{17pt}{17pt}\selectfont\faGraduationCap}\hspace{0.5em}教育背景}
+\section{\secicon{\faGraduationCap}\hspace{0.5em}教育背景}
 
 \titlespacing*{\section}{0pt}{15pt}{8pt}
 
 \begin{itemize}
     \item 大陆魔法学院 {\boldtext{\Large 顶尖学府}} \hfill 本科 / 攻击魔法与防御术 \hfill 勇者历 497年 — 501年
-    \item 学业表现：结界理论满分，飞行魔法免修，普通攻击魔法首席 \ 
+    \item 学业表现：结界理论满分，飞行魔法免修，普通攻击魔法首席 \
     \item 主修课程：攻击魔法实务、防御结界理论、魔力感知与控制、远古魔法文献解读、飞行魔法进阶、召唤术入门
 \end{itemize}
 
-\section{{\color{iconPurple}\fontsize{17pt}{17pt}\selectfont\faTrophy}\hspace{0.5em}竞赛获奖}
+\section{\secicon{\faTrophy}\hspace{0.5em}竞赛获奖}
 
 \begin{itemize}
     \item \begin{tabular}[t]{@{} p{0.50\textwidth} p{0.14\textwidth} p{0.12\textwidth} r @{}}
@@ -79,7 +97,7 @@
     \end{tabular}
 \end{itemize}
 
-\section{{\color{iconPurple}\fontsize{17pt}{17pt}\selectfont\faCode}\hspace{0.5em}个人技术栈}
+\section{\secicon{\faCode}\hspace{0.5em}个人技术栈}
 \begin{itemize}
     \item 熟练掌握 \boldtext{攻击魔法}，精通 \boldtext{普通攻击魔法（Zoltraak）}，能持续输出高密度魔力弹
     \item 精通 \boldtext{防御结界}，具备实时解析敌方魔法结构并进行护盾反制的能力
@@ -88,7 +106,7 @@
     \item 具备长期冒险经验，熟悉 \boldtext{迷宫探索} 流程、\boldtext{魔物生态} 分类及 \boldtext{古代遗物} 鉴定
 \end{itemize}
 
-\section{{\color{iconPurple}\fontsize{17pt}{17pt}\selectfont\faProjectDiagram}\hspace{0.5em}项目经历}
+\section{\secicon{\faProjectDiagram}\hspace{0.5em}项目经历}
 \boldtext{魔王讨伐远征——勇者小队核心成员} \hfill 攻击魔法担当 \hfill 勇者历 510 — 520
 \begin{itemize}
     \item 核心能力：\boldtext{攻击魔法}、\boldtext{防御结界}、\boldtext{精灵秘术}、\boldtext{团队协作}、\boldtext{战术决策}
@@ -102,17 +120,17 @@
     \item 项目概要：受大陆魔法协会委托，独自前往北部高原调查并清剿异常增殖的魔物群。利用精灵族魔力感知天赋精准定位魔物巢穴，配合封印魔法控制高危个体，并沿途鉴定古代文明遗留魔法器具以辅助战斗。最终成功恢复北部高原生态平衡，并撰写了《北部魔物生态变迁报告》，成为大陆魔法学院的指定参考文献。
 \end{itemize}
 
-\section{{\color{iconPurple}\fontsize{17pt}{17pt}\selectfont\faUser}\hspace{0.5em}自我评价}
+\section{\secicon{\faUser}\hspace{0.5em}自我评价}
 历时千年的漫长旅途，经历过与勇者辛美尔并肩作战的十年，也独自走过无数山川与城镇。
 精通攻击魔法与防御结界，拥有丰富的魔物讨伐与古代遗迹探索经验。
 历尽沧桑却始终保持对世界的好奇心，期待在每一个清晨遇见新的同伴、新的冒险与新的魔法。
 
 \newpage
-\section{{\color{iconPurple}\fontsize{17pt}{17pt}\selectfont\faBriefcase}\hspace{0.5em}实习经历}
+\section{\secicon{\faBriefcase}\hspace{0.5em}实习经历}
 \boldtext{一级魔法使考核·同行历练} \hfill 与菲伦、修塔尔克同行 \hfill 勇毙历 28 — 30
 \begin{itemize}
     \item 核心能力：\boldtext{实战魔法应用}、\boldtext{新人指导}、\boldtext{魔物讨伐}、\boldtext{遗迹探索}
-    \item 实习概要：陪同弟子菲伦参与一级魔法使资格考核，沿途指导攻击魔法与防御结界的实战应用，同时协助战士修塔尔克磨练近战技巧。途中遭遇魔族残余势力与高阶魔物，通过实际战斗完善了「普通攻击魔法瞬发连射」战术体系。
+    \item 实习概要：陪同弟子菲伦参与一级魔法使资格考核，沿途指导攻击魔法与防御结实的实战应用，同时协助战士修塔尔克磨练近战技巧。途中遭遇魔族残余势力与高阶魔物，通过实际战斗完善了「普通攻击魔法瞬发连射」战术体系。
 \end{itemize}
 
 \vspace{0.8em}
@@ -122,13 +140,11 @@
     \item 实习概要：受大陆魔法协会特聘，协助修复勇者历以前的古代魔法文献。凭借精灵族千年寿命积淀的语言能力，独立翻译并复原了 47 卷上古精灵语魔法典籍，其中 12 种失传防御结界被重新编入现代魔法教学大纲。
 \end{itemize}
 
-\section{{\color{iconPurple}\fontsize{17pt}{17pt}\selectfont\faCodeBranch}\hspace{0.5em}开源项目}
+\section{\secicon{\faCodeBranch}\hspace{0.5em}开源项目}
 \boldtext{精灵族远古魔法数字化复原} \hfill 项目发起人 \hfill 勇毙历 42 — 至今
 \begin{itemize}
     \item 技术栈：\boldtext{魔法阵矢量绘制}、\boldtext{魔力流动可视化}、\boldtext{精灵语标注}、\boldtext{跨种族协作}
     \item 项目概要：发起并主持「远古魔法开源复原计划」，将精灵族口耳相传的失传魔法以标准化魔法阵图形式记录并公开。通过与矮人族工程师、人类魔法学者协作，已数字化复原 89 种远古魔法，完成精灵语—通用语双语标注，托管于大陆魔法协会公共档案库，月均查阅次数逾千次。
 \end{itemize}
 
-
 \end{document}
-

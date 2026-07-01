@@ -40,9 +40,9 @@ rm 简历.aux 简历.log 简历.out
 
 | 项目 | 配置 |
 |------|------|
-| 正文字体 | KaiTi（楷体）+ AutoFakeBold 加粗 |
-| 标题 | 深蓝 `#242D4A` + 下划线 |
-| 图标 | 紫色 `#6B1459` Font Awesome 5 |
+| 正文字体 | SimSun（宋体）+ AutoFakeBold 加粗 |
+| 标题 | 黑灰 + 折角下划线 |
+| 图标 | 黑色 Font Awesome 5 |
 | 字号 | 正文 11pt，章节标题 `\large` |
 | 列表 | `\boldtext{}` 关键字加粗 |
 
@@ -56,9 +56,9 @@ rm 简历.aux 简历.log 简历.out
 
 ## ⚠️ 注意
 
-- 楷体无原生粗体，使用 `AutoFakeBold=2.5` 伪粗体
+- 宋体无原生粗体，使用 `AutoFakeBold=2.5` 伪粗体
 - 无页码（`\pagestyle{empty}`）
-- 如果系统缺少 KaiTi，改为 `SimSun` 即可
+- 使用 XeLaTeX 编译
 
 ---
 
